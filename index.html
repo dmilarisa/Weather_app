@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather app</title>
+  <link rel="stylesheet" href="src/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/b1df7cb9fa.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <div class="container general">
+    <!-- <div class="cities">
+      <span class="city">Kyiv</span>
+      <span class="city">Porto</span>
+      <span class="city">Odessa</span>
+    </div> -->
+  
+    <form>
+      <div class="row">
+        <div class="col-4">
+          <div class="mb-3">
+            <input type="text" class="form-control" id = "city-input" placeholder="Enter the city">
+          </div>
+        </div>
+        <div class="col-2">
+          <button type="submit" class="btn btn-primary" id = "go-button">Search</button>
+        </div>
+        <div class="col-2">
+          <button type="button" class="btn btn-success" id = "current">Current</button>
+        </div>
+      </div>
+    </form>
+
+    <div class="main-city">
+      <div class="row">
+        <div class="col-3">
+          <h2 id = "city">Trofa</h2>
+          <h4 class="current-date" id="date-time">Tuesday</h4>
+          <h2>
+            <span id = "temp-c">
+              25
+            </span>
+            <span class = "degrees">
+              <!-- <a href="#" id="celsius"> -->
+                °C
+              <!-- </a> -->
+              <!-- / -->
+              <!-- <a href="#" id="fahrengeit">
+                °F
+              </a> -->
+            </span>
+          </h2>
+          <!-- <p>
+            Precipitation: <strong>70%</strong>
+            <br />
+            Wind: <strong>7km/h</strong>
+          </p> -->
+        </div>
+        <!-- <div class="col-2">
+          <i class="fa-solid fa-sun sun-big-icon"></i>          
+        </div> -->
+      </div>
+    </div>
+
+    <!-- <div class = "row week-data">
+      <div class = "col-sm-2">
+        <div class="card">
+          <div class="card-body">
+            <h6 class="card-title">Monday</h5>
+            <p class="card-text">26°C</p>
+            <i class="fa-solid fa-sun sun-icon"></i> 
+          </div>
+        </div>
+      </div>
+
+      <div class = "col-sm-2">
+        <div class="card">
+          <div class="card-body">
+            <h6 class="card-title">Tuesday</h5>
+            <p class="card-text">24°C</p>
+            <i class="fa-solid fa-cloud-sun"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class = "col-sm-2">
+        <div class="card">
+          <div class="card-body">
+            <h6 class="card-title">Wednesday</h5>
+            <p class="card-text">20°C</p>
+            <i class="fa-solid fa-cloud-sun-rain"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class = "col-sm-2">
+        <div class="card">
+          <div class="card-body">
+            <h6 class="card-title">Thursday</h5>
+            <p class="card-text">24°C</p>
+            <i class="fa-solid fa-cloud-sun"></i>
+          </div>
+        </div>
+      </div>
+      
+      <div class = "col-sm-2">
+        <div class="card">
+          <div class="card-body">
+            <h6 class="card-title">Friday</h5>
+            <p class="card-text">25°C</p>
+            <i class="fa-solid fa-sun sun-icon"></i> 
+          </div>
+        </div>
+      </div> -->
+
+
+  </div>
+  <script src="src/index.js"></script>
+</body>
+</html>
