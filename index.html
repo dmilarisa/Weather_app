@@ -14,118 +14,120 @@
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
-  <div class="container general">
-    <!-- <div class="cities">
-      <span class="city">Kyiv</span>
-      <span class="city">Porto</span>
-      <span class="city">Odessa</span>
-    </div> -->
-  
-    <form>
-      <div class="row">
-        <div class="col-4">
-          <div class="mb-3">
-            <input type="text" class="form-control" id = "city-input" placeholder="Enter the city">
-          </div>
-        </div>
-        <div class="col-2">
-          <button type="submit" class="btn btn-primary" id = "go-button">Search</button>
-        </div>
-        <div class="col-2">
-          <button type="button" class="btn btn-success" id = "current">Current</button>
-        </div>
-      </div>
-    </form>
-
-    <div class="main-city">
-      <div class="row">
-        <div class="col-3">
-          <h2 id = "city">Trofa</h2>
-          <h4 class="current-date" id="date-time">Tuesday</h4>
-          <h2>
-            <span id = "temp-c">
-              25
-            </span>
-            <span class = "degrees">
-              <!-- <a href="#" id="celsius"> -->
-                °C
-              <!-- </a> -->
-              <!-- / -->
-              <!-- <a href="#" id="fahrengeit">
-                °F
-              </a> -->
-            </span>
-          </h2>
-          <!-- <p>
-            Precipitation: <strong>70%</strong>
-            <br />
-            Wind: <strong>7km/h</strong>
-          </p> -->
-        </div>
-        <!-- <div class="col-2">
-          <i class="fa-solid fa-sun sun-big-icon"></i>          
-        </div> -->
-      </div>
-    </div>
-
-    <!-- <div class = "row week-data">
-      <div class = "col-sm-2">
-        <div class="card">
-          <div class="card-body">
-            <h6 class="card-title">Monday</h5>
-            <p class="card-text">26°C</p>
-            <i class="fa-solid fa-sun sun-icon"></i> 
-          </div>
-        </div>
-      </div>
-
-      <div class = "col-sm-2">
-        <div class="card">
-          <div class="card-body">
-            <h6 class="card-title">Tuesday</h5>
-            <p class="card-text">24°C</p>
-            <i class="fa-solid fa-cloud-sun"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class = "col-sm-2">
-        <div class="card">
-          <div class="card-body">
-            <h6 class="card-title">Wednesday</h5>
-            <p class="card-text">20°C</p>
-            <i class="fa-solid fa-cloud-sun-rain"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class = "col-sm-2">
-        <div class="card">
-          <div class="card-body">
-            <h6 class="card-title">Thursday</h5>
-            <p class="card-text">24°C</p>
-            <i class="fa-solid fa-cloud-sun"></i>
-          </div>
-        </div>
-      </div>
-      
-      <div class = "col-sm-2">
-        <div class="card">
-          <div class="card-body">
-            <h6 class="card-title">Friday</h5>
-            <p class="card-text">25°C</p>
-            <i class="fa-solid fa-sun sun-icon"></i> 
-          </div>
-        </div>
+  <div class="general">
+    <div class="weather">
+      <!-- <div class="cities">
+        <span class="city">Kyiv</span>
+        <span class="city">Porto</span>
+        <span class="city">Odessa</span>
       </div> -->
+    
+      <form>
+        <div class="row">
+          <div class="col-4">
+            <div class="mb-3">
+              <input type="text" class="form-control" id = "city-input" placeholder="Enter the city">
+            </div>
+          </div>
+          <div class="col-2">
+            <button type="submit" class="btn btn-primary" id = "go-button">Search</button>
+          </div>
+          <div class="col-2">
+            <button type="button" class="btn btn-success" id = "current">Current</button>
+          </div>
+        </div>
+      </form>
+
+      <div class="main-city">
+        <div class="row">
+          <div class="col-3">
+            <h2 id = "city">Trofa</h2>
+            <h4 class="current-date" id="date-time">Tuesday</h4>
+            <h2>
+              <span id = "temp-c">
+                25
+              </span>
+              <span class = "degrees">
+                <!-- <a href="#" id="celsius"> -->
+                  °C
+                <!-- </a> -->
+                <!-- / -->
+                <!-- <a href="#" id="fahrengeit">
+                  °F
+                </a> -->
+              </span>
+            </h2>
+            <!-- <p>
+              Precipitation: <strong>70%</strong>
+              <br />
+              Wind: <strong>7km/h</strong>
+            </p> -->
+          </div>
+          <!-- <div class="col-2">
+            <i class="fa-solid fa-sun sun-big-icon"></i>          
+          </div> -->
+        </div>
+      </div>
+
+      <!-- <div class = "row week-data">
+        <div class = "col-sm-2">
+          <div class="card">
+            <div class="card-body">
+              <h6 class="card-title">Monday</h5>
+              <p class="card-text">26°C</p>
+              <i class="fa-solid fa-sun sun-icon"></i> 
+            </div>
+          </div>
+        </div>
+
+        <div class = "col-sm-2">
+          <div class="card">
+            <div class="card-body">
+              <h6 class="card-title">Tuesday</h5>
+              <p class="card-text">24°C</p>
+              <i class="fa-solid fa-cloud-sun"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class = "col-sm-2">
+          <div class="card">
+            <div class="card-body">
+              <h6 class="card-title">Wednesday</h5>
+              <p class="card-text">20°C</p>
+              <i class="fa-solid fa-cloud-sun-rain"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class = "col-sm-2">
+          <div class="card">
+            <div class="card-body">
+              <h6 class="card-title">Thursday</h5>
+              <p class="card-text">24°C</p>
+              <i class="fa-solid fa-cloud-sun"></i>
+            </div>
+          </div>
+        </div>
+        
+        <div class = "col-sm-2">
+          <div class="card">
+            <div class="card-body">
+              <h6 class="card-title">Friday</h5>
+              <p class="card-text">25°C</p>
+              <i class="fa-solid fa-sun sun-icon"></i> 
+            </div>
+          </div>
+        </div> -->
 
 
-  </div>
-  <div class="bottom">
-    <a href = "https://github.com/dmilarisa/Weather_app">
-      Open-source code
-    </a>
-    , by Larysa Dmytrenko
+    </div>
+    <small class="bottom">
+      <a href = "https://github.com/dmilarisa/Weather_app">
+        Open-source code
+      </a>
+      , by Larysa Dmytrenko
+    </small>
   </div>
   <script src="src/index.js"></script>
 </body>

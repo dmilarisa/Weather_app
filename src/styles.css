@@ -1,8 +1,15 @@
 .general {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 80%;
+}
+
+.weather {
   font-family:'Chakra Petch', sans-serif;
   background-color: antiquewhite;
-  margin: 20px;
-  padding: 20px;
 }
 
 .cities {
@@ -50,5 +57,5 @@ h3 {
 }
 
 .bottom {
-  margin: 0px 0px 0px 80px;
+  box-sizing: border-box;
 }
