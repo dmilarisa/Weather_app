@@ -22,26 +22,39 @@ if (minutes < 10) {
 date.innerHTML = daysOfWeek[now.getDay()] + " " + hour + ":" + minutes;
 
 function showTemperature(response) {
-  let temp = Math.round(response.data.main.temp);
-  let tempC = document.querySelector('#temp-c');
-  tempC.innerHTML = `${temp}`;
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  
+  let cityElement = document.querySelector("#city");
+  cityElement.innerHTML = response.data.name;
 
-  let city = response.data.name;
-  let cityToChange = document.querySelector('#city');
-  cityToChange.innerHTML = city;
+  // let temp = Math.round(response.data.main.temp);
+  // let tempC = document.querySelector('#temperature');
+  // tempC.innerHTML = `${temp}`;
+
+  // let city = response.data.name;
+  // let cityToChange = document.querySelector('#city');
+  // cityToChange.innerHTML = city;
+
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = response.data.main.humidity;
+  
+  let windElement = document.querySelector("#wind");
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+}
+
+function search(city) {
+  let apiKey = "c358f38536c4808d14556c03c5e2d3e0";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(showTemperature);
 }
 
 function changeData(event) {
   event.preventDefault();
   let cityInput = document.querySelector('#city-input').value;
-
-  let apiKey = "c358f38536c4808d14556c03c5e2d3e0"
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showTemperature);
+  search(cityInput);
 }
-
-let buttonToClick = document.querySelector('#go-button');
-buttonToClick.addEventListener("click", changeData);
 
 function findCurrentPosition(position) {
   let lat = position.coords.latitude;
@@ -56,8 +69,13 @@ function setCurrentData(event) {
   navigator.geolocation.getCurrentPosition(findCurrentPosition);
 }
 
+let buttonToClick = document.querySelector('#go-button');
+buttonToClick.addEventListener("click", changeData);
+
 let buttonCurrent = document.querySelector("#current");
 buttonCurrent.addEventListener("click", setCurrentData);
+
+search("Kyiv");
 
 
 // function fahrenheit(event) {

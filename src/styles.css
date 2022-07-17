@@ -1,61 +1,43 @@
 .general {
+  font-family:'Chakra Petch', sans-serif;
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  max-width: 80%;
+  max-width: 600px;
 }
 
-.weather {
-  font-family:'Chakra Petch', sans-serif;
-  background-color: antiquewhite;
-}
-
-.cities {
-  margin: 20px;
-}
-.city {
-  color:brown;
-  padding: 0 40px 0 0;
+.weather-block {
+  background-color: rgb(189, 233, 248);
+  margin-top: 30px;
+  margin-bottom: 0;
+  border-radius: 5px;
 }
 
 form {
-  margin: 0 20px 0 20px;
+  margin: 20px;
+  padding: 20px 0 0 0;
 }
 
-.main-city {
-  margin: 0 20px 0 20px;
-  padding: 50px 0 50px;
-  color:brown; 
-}
-
-h2 {
-  color:brown;
-}
-
-h3 {
-  font-weight: normal;
-}
-
-.degrees {
-  font-size:normal;
-  
-}
-
-.week-data {
-  margin: 0 20px 0 20px;
-}
-
-.sun-big-icon {
-  color: yellow;
-  font-size: 100px;
-}
-
-.sun-icon {
-  font-size: 20px;
+.city-info {
+  margin-left:20px;
 }
 
 .bottom {
-  box-sizing: border-box;
+  margin-top: 0;
+}
+
+.temp {
+  font-size: 34px;
+}
+
+.clearfix {
+  overflow:auto;
+}
+
+.temperature .units {
+  position: relative;
+  font-size: 16px;
+  top: -12px;
 }
