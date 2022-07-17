@@ -15,9 +15,17 @@
   border-radius: 5px;
 }
 
+a {
+  text-decoration: none;
+}
+
 form {
   margin: 20px;
   padding: 20px 0 0 0;
+}
+
+p:first-letter {
+  text-transform: capitalize;
 }
 
 .city-info {
@@ -40,4 +48,18 @@ form {
   position: relative;
   font-size: 16px;
   top: -12px;
+}
+
+.temperature .active {
+  color: black;
+  cursor: default;
+  text-decoration: none;
+}
+
+.u-link {
+  text-decoration: none;
+}
+
+.temperature .active:hover {
+  text-decoration: none;
 }

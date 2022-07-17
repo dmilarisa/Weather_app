@@ -1,46 +1,52 @@
-let date = document.querySelector('#date-time');
-let now = new Date();
-let daysOfWeek = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-]
+function formatDate(date) {
+  let now = new Date(date);
+  let daysOfWeek = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ]
 
-let hour = now.getHours();
-let minutes = now.getMinutes();
-if (hour < 10) {
-  hour = "0" + String(hour);
-}
-if (minutes < 10) {
-  minutes = "0" + String(minutes);
-}
+  let hour = now.getHours();
+  let minutes = now.getMinutes();
+  if (hour < 10) {
+    hour = "0" + String(hour);
+  }
+  if (minutes < 10) {
+    minutes = "0" + String(minutes);
+  }
 
-date.innerHTML = daysOfWeek[now.getDay()] + " " + hour + ":" + minutes;
+  return daysOfWeek[now.getDay()] + " " + hour + ":" + minutes;
+}
 
 function showTemperature(response) {
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
-  
+ 
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = response.data.name;
 
-  // let temp = Math.round(response.data.main.temp);
-  // let tempC = document.querySelector('#temperature');
-  // tempC.innerHTML = `${temp}`;
-
-  // let city = response.data.name;
-  // let cityToChange = document.querySelector('#city');
-  // cityToChange.innerHTML = city;
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.innerHTML = response.data.weather[0].description;
 
   let humidityElement = document.querySelector("#humidity");
   humidityElement.innerHTML = response.data.main.humidity;
   
   let windElement = document.querySelector("#wind");
   windElement.innerHTML = Math.round(response.data.wind.speed);
+
+  let dateElement = document.querySelector("#date");
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
+
+  let iconElement = document.querySelector("#icon");
+  let iconCode = response.data.weather[0].icon;
+  let iconUrl = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
+  iconElement.setAttribute("src", iconUrl);
+  
+  celsiusTemp = response.data.main.temp
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemp);
 }
 
 function search(city) {
@@ -69,11 +75,36 @@ function setCurrentData(event) {
   navigator.geolocation.getCurrentPosition(findCurrentPosition);
 }
 
+function showFahrenheit(event) {
+  event.preventDefault();
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemp = Math.round(celsiusTemp * 9 / 5 + 32);
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
+}
+
+function showCelsius(event) {
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemp);
+}
+
 let buttonToClick = document.querySelector('#go-button');
 buttonToClick.addEventListener("click", changeData);
 
 let buttonCurrent = document.querySelector("#current");
 buttonCurrent.addEventListener("click", setCurrentData);
+
+let celsiusTemp = null;
+
+let fahrenheitLink = document.querySelector("#f-link");
+fahrenheitLink.addEventListener("click", showFahrenheit);
+
+let celsiusLink = document.querySelector("#c-link");
+celsiusLink.addEventListener("click", showCelsius);
 
 search("Kyiv");
 
