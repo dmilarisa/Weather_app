@@ -92,6 +92,8 @@ function showTemperature(response) {
   celsiusTemp = response.data.main.temp
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemp);
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
 
   getForecast(response.data.coord);
 }
@@ -132,9 +134,9 @@ function showFahrenheit(event) {
 }
 
 function showCelsius(event) {
+  event.preventDefault();
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
-  event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemp);
 }
